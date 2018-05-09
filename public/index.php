@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 echo "ekkle";
 
 $method = $_SERVER['REQUEST_METHOD'];
