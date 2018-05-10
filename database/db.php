@@ -12,10 +12,4 @@ if ($db->connect_error) {
 }
 return $db;
 
-
-
-
-// $res = $db->query("THE QUERY");
-// $row = $res->fetch_assoc();
-// echo $row['ekkle'];
 >
