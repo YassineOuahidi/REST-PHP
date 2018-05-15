@@ -39,7 +39,7 @@ function badRequest(){
 //-----------------------------------------Functions to get the work done---------------------------------//
 
 function getQualcosa(){
-    echo "get qulcosaaaaaa";
+    require __DIR__ . '/../view/qualcosa.php';
 }
 
 function postQualcosa(){
