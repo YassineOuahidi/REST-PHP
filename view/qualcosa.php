@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Pagin</title>
-</head>
+<?php
+function visualizza($variabile){
+?>  
+<?php require __DIR__ . '/parcials/header.php'; ?>
 <body>
-<h1>Bella Fra</h1>
-<?php echo "qualcosa" ?>
+    <h1>Bella Fra</h1>
+    <?php echo $variabile ?>
 
 </body>
-</html>
+</html> 
+<?php  }?>
+
+
+

@@ -3,8 +3,11 @@
 function get($uri){
     $headers = apache_request_headers();
     switch ($uri) {
+        case '/':
+        index();
+        break
         case '/qualcosa':
-        getQualcosa();
+        getQualcosa($headers);
         break;
         
         default:
@@ -38,8 +41,18 @@ function badRequest(){
 
 //-----------------------------------------Functions to get the work done---------------------------------//
 
-function getQualcosa(){
-    require __DIR__ . '/../view/qualcosa.php';
+function getQualcosa($headers){
+    //risultato della query
+    // require /model/object.php
+    
+    $r = getQualcosa();
+    if($headers["Accept"].contains("html")){
+        require __DIR__ . '/../view/qualcosa.php';
+        visualizza($r);
+    }else{
+        echo $r;
+    }
+
 }
 
 function postQualcosa(){
