@@ -5,7 +5,7 @@ function get($uri){
     switch ($uri) {
         case '/':
         index();
-        break
+        break;
         case '/qualcosa':
         getQualcosa($headers);
         break;
@@ -45,8 +45,9 @@ function getQualcosa($headers){
     //risultato della query
     // require /model/object.php
     
-    $r = getQualcosa();
-    if($headers["Accept"].contains("html")){
+    //$r = getQualcosa();
+    $r = "ekkelo"; //Risultato della query
+    if(strpos($headers["Accept"], 'html') !== false){
         require __DIR__ . '/../view/qualcosa.php';
         visualizza($r);
     }else{
