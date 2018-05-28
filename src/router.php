@@ -1,11 +1,15 @@
 <?php 
 //-----------------------------------------Functions to define method behavior---------------------------------//
 function get($uri){
+    
+    $array = explode('?',$uri);
+    $uri = $array[0];
+
     $headers = apache_request_headers();
     switch ($uri) {
         case '/':
         index();
-        break;
+        break; 
         case '/qualcosa':
         getQualcosa($headers);
         break;
@@ -22,7 +26,9 @@ function post($uri){
         case '/qualcosa':
         postQualcosa();
         break;
-        
+        case '/login':
+        login();
+        break;
         default:
         notFound();
         break;
@@ -46,7 +52,7 @@ function getQualcosa($headers){
     // require /model/object.php
     
     //$r = getQualcosa();
-    $r = "ekkelo"; //Risultato della query
+    $r = "ekkle";
     if(strpos($headers["Accept"], 'html') !== false){
         require __DIR__ . '/../view/qualcosa.php';
         visualizza($r);
@@ -58,8 +64,25 @@ function getQualcosa($headers){
 
 function postQualcosa(){
     var_dump($_POST);
+    
     //Qui faccio qualcosa con il coso del post
-    echo "<br/>ho fatto la post\n";
+    //Per esempio
+    if (isset($_POST)) {
+        //fai la sanitizzazione dei campi
+        //poi chiami la funzione del model (object.php)
+        aggiungiQuestionario($_POST);
+    }
+}
+
+
+function login(){
+    //Controlli sulla post
+    doLogin($_POST);
+
+}
+
+function index(){
+    echo "pagina principale";
 }
 
 

@@ -6,10 +6,11 @@ define("DATABASE", "");
 
 
 
-$db = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+$db = mysql_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
 if ($db->connect_error) {
     die ("Error while trying to connect to database: " . $db->connect_error);
 }
-return $db;
+
+
 
 >
